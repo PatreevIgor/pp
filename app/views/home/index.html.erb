@@ -19,7 +19,8 @@
     <% end %>
   </tbody>
 </table>
-
+<p>
+<%= link_to 'New Room', new_room_path %>
 <p>
 
 <h1>Listing Users</h1>
@@ -28,6 +29,8 @@
     <tr>
       <th>Name</th>
       <th>Status</th>
+      <th>id</th>
+      <th>room_id</th>
     </tr>
   </thead>
 
@@ -36,6 +39,8 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.status %></td>
+        <td><%= user.id %></td>
+        <td><%= user.room_id %></td>        
         </td>
       </tr>
     <% end %>

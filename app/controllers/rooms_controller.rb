@@ -15,6 +15,7 @@ class RoomsController < ApplicationController
   # GET /rooms/new
   def new
     @room = Room.new
+    @users = User.all
   end
 
   # GET /rooms/1/edit
@@ -24,12 +25,23 @@ class RoomsController < ApplicationController
   # POST /rooms
   # POST /rooms.json
   def create
+    # binding.pry
     @room = Room.new(room_params)
 
     current_user ? @room.creater = current_user.name : @room.creater = ''
 
     respond_to do |format|
       if @room.save
+
+        user_names = params['check_box'].keys
+
+
+        user_names.each do |user_name|
+            User.where(name: user_name).first.update_attributes(room_id:@room.id)
+        end
+
+
+
         format.html { redirect_to @room, notice: 'Room was successfully created.' }
         format.json { render :show, status: :created, location: @room }
       else

@@ -16,7 +16,18 @@
     <%= f.text_field :title %>
   </div>
 
+  <div class="field">
+    Select_User_to_room_invite: <br>
+
+  <% @users.each do |user| %> 
+    <%= user.name %> 
+    <%= check_box_tag "check_box[#{user.name}]" %> 
+  <% end %> 
+
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
