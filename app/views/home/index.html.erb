@@ -4,3 +4,46 @@
 <% else %>
     <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
 <% end %>
+
+<h1>Listing Rooms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Creater</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rooms.each do |room| %>
+      <tr>
+        <td><%= room.title %></td>
+        <td><%= room.creater %></td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>
+
+<h1>Listing Users</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.status %></td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
