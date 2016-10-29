@@ -1,6 +1,3 @@
 class Room < ActiveRecord::Base
-	def invite_to_room
-		
-	end
-
+	has_many :users, dependent: :destroy
 end

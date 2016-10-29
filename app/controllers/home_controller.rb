@@ -5,7 +5,4 @@ class HomeController < ApplicationController
   	@users = User.all
   end
 
-  def invite_user
-  end
-
 end
