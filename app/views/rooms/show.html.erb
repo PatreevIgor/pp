@@ -12,3 +12,33 @@
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
+
+
+<% if @room.users.empty? %>
+	<p>
+		<strong>This room is empty now!</strong>
+	</p>
+<% else %>
+	<p>
+		<strong>Users in the room</strong>
+	</p>
+
+	<table border="0" width="98%">
+	  <thead>
+	    <tr>
+	      <th>User</th>
+	      <th>Status</th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% @room.users.each do |c| %>
+	      <tr>
+	        <td><%= c.name %></td>
+	        <td><%= c.status %></td>
+	     </tr>
+	<% end %>
+	  </tbody>
+	</table>
+
+<% end %>
