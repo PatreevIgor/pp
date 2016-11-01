@@ -19,6 +19,7 @@
     <% end %>
   </tbody>
 </table>
+
 <p>
 <%= link_to 'New Room', new_room_path %>
 <p>
@@ -46,3 +47,17 @@
     <% end %>
   </tbody>
 </table>
+
+<p>
+<h1>New panel appointments</h1>
+<%= form_tag url_for(:controller => 'home', :action => 'appointment'), :method => 'get' do %>
+
+User: 
+	<%= select_tag 'user', options_for_select(@users.collect{ |u| u.name }) %> 
+add to 
+	<%= select_tag 'room', options_for_select(@rooms.collect{ |u| u.title }) %>
+room
+<p>
+  <%= submit_tag("Аppoint") %>
+<% end %>
+

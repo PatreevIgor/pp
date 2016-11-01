@@ -35,12 +35,9 @@ class RoomsController < ApplicationController
 
         user_names = params['check_box'].keys
 
-
         user_names.each do |user_name|
             User.where(name: user_name).first.update_attributes(room_id:@room.id)
         end
-
-
 
         format.html { redirect_to @room, notice: 'Room was successfully created.' }
         format.json { render :show, status: :created, location: @room }
